@@ -1,17 +1,31 @@
 const pokemonContainer = document.querySelector('.pokedex-container');
+const entradaPokemonCantidad = document.getElementById('entrada-pokemon-cantidad');
+const botonCantidadPokemon = document.getElementById('boton-cantidad-pokemon');
 
-const fetchPokemon = async () => {
+const fetchPokemon = async (limite = 150) => {
     const promises = [];
-    for (let i = 1; i <= 150; i++) { // 150, se puede cambiar
+    if (limite < 1 || limite > 1025) {
+        alert('El límite debe estar entre 1 y 1025');
+        return;
+    }
+
+    pokemonContainer.innerHTML = '';
+
+    for (let i = 1; i <= limite; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then((res) => res.json()));
     }
 
-    const resultados = await Promise.all(promises);
+    try {
+        const resultados = await Promise.all(promises);
 
-    resultados.forEach(pokemon => {
-        createPokemonCard(pokemon);
-    });
+        resultados.forEach(pokemon => {
+            createPokemonCard(pokemon);
+        });
+    } catch (error) {
+        alert("Error al obtener los datos de Pokémon: " + error);
+        pokemonContainer.innerHTML = '<p style="text-align: center; color: red;">Error al cargar los Pokémones. Inténtalo de nuevo.</p>';
+    }
 };
 
 const createPokemonCard = (pokemon) => {
@@ -45,5 +59,17 @@ const createPokemonCard = (pokemon) => {
     pokemonContainer.appendChild(pokemonEl);
 };
 
-fetchPokemon();
+botonCantidadPokemon.addEventListener('click', () => {
+    const nuevoLimite = parseInt(entradaPokemonCantidad.value);
 
+    if (isNaN(nuevoLimite) || nuevoLimite == 0) {
+        alert('Por favor, ingresa un número válido.');
+        return;
+    }
+
+    fetchPokemon(nuevoLimite);
+});
+
+const initialLimit = parseInt(entradaPokemonCantidad.value);
+
+fetchPokemon(initialLimit);
