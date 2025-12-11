@@ -41,6 +41,11 @@ const createPokemonCard = (pokemon) => {
     // Usando la imagen oficial de la API
     const img = pokemon.sprites.front_default;
 
+    // Genera el HTML de cada tipo
+    const tiposHTML = tipos.map(type =>
+        `<span class="type-badge type-${type}">${type.toUpperCase()}</span>`
+    ).join('');
+
     // Creando el HTML
     const pokemonHTML = `
         <div class="pokemon-image-container">
@@ -50,7 +55,7 @@ const createPokemonCard = (pokemon) => {
             <span class="pokemon-id">#${pokemon.id}</span>
             <h2 class="pokemon-name">${nombre}</h2>
             <div class="pokemon-types">
-                <span class="type-badge type-${tipo}">${tipo.toUpperCase()}</span>
+                ${tiposHTML}
             </div>
         </div>
     `;
