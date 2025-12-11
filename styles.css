@@ -11,8 +11,16 @@ body {
 }
 
 .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
     text-align: center;
     padding: 2rem 0;
+}
+
+.main-title {
+    font-family: 'Press Start 2P', cursive;
 }
 
 .main-header h1 {
