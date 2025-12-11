@@ -1,93 +1,59 @@
 # PracticaFinal-JavaScript
 
+## 🌟 Pokédex Dinámica
 
+Este proyecto es una Pokédex simple y moderna creada con HTML, CSS y JavaScript Vanilla. Utiliza la [PokéAPI](https://pokeapi.co/) para cargar dinámicamente datos de Pokémones, permitiendo al usuario seleccionar cuántos Pokémones desea visualizar en la lista.
 
-## Getting started
+### 🖼️ Características
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+* **Carga Dinámica:** Obtiene datos (nombre, ID, imagen y tipos) de la PokéAPI.
+* **Diseño Responsivo:** Tarjetas flexibles que se adaptan al tamaño de la pantalla.
+* **Selección Personalizada:** Permite al usuario elegir la cantidad de Pokémones a mostrar (hasta 1025).
+* **Estilo Retro:** Uso de la fuente 'Press Start 2P' para el título, dándole un toque clásico de videojuego.
+* **Tipos con Colores:** Cada tipo de Pokémon tiene su propio color distintivo (Grass, Fire, Water, Fairy, etc.).
+* **Soporte Doble Tipo:** Muestra correctamente las etiquetas para Pokémones que tienen dos tipos.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+### 🚀 Tecnologías Utilizadas
 
-## Add your files
+| Tecnología | Propósito |
+| :--- | :--- |
+| **HTML5** | Estructura básica de la página. |
+| **CSS3** | Estilizado, uso de Flexbox para la alineación y colores de tipos. |
+| **JavaScript (Vanilla)** | Conexión con la API (`fetch`), manipulación del DOM y lógica de la aplicación. |
+| **PokéAPI** | Fuente de datos para todos los Pokémones. |
+| **Google Fonts** | Uso de 'Roboto' y 'Press Start 2P'. |
 
-* [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+### ⚙️ Cómo Usar (Instrucciones de Instalación)
+
+Dado que este proyecto solo utiliza código del lado del cliente (HTML, CSS, JS), no requiere un servidor complejo ni dependencias externas.
+
+#### 1. Estructura de Archivos
+
+Asegúrate de tener la siguiente estructura de carpetas:
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/DanielGarcia654/practicafinal-javascript.git
-git branch -M main
-git push -uf origin main
+/pokedex-proyecto 
+├── index.html 
+├── styles.css 
+└── script.js
 ```
 
-## Integrate with your tools
+#### 2. Ejecutar la Aplicación
 
-* [Set up project integrations](https://gitlab.com/DanielGarcia654/practicafinal-javascript/-/settings/integrations)
+Simplemente abre el archivo `index.html` en tu navegador web (haciendo doble clic).
 
-## Collaborate with your team
+### 📝 Archivos Clave
 
-* [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+| Archivo | Contenido | Notas |
+| :--- | :--- | :--- |
+| **`index.html`** | Estructura y enlazamiento de scripts. | Contiene el campo de entrada (`<input type="number">`) y el botón de carga. |
+| **`styles.css`** | Diseño y apariencia. | Define los estilos de las tarjetas, botones y los colores para todos los tipos de Pokémon. |
+| **`script.js`** | Lógica y datos. | Contiene las funciones `fetchPokemon` y `createPokemonCard` para manejar la API, la validación y el renderizado dinámico. |
 
-## Test and Deploy
+### 👤 Créditos
 
-Use the built-in continuous integration in GitLab.
+Hecho por **Gerardo Daniel García Cerda**
+Para el programa de becarios **DGTIC Ingeniería de Software 2026-1**
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+* **Datos:** [PokéAPI](https://pokeapi.co/)
+* **Iconografía:** Pokeball SVG de Wikimedia Commons.
