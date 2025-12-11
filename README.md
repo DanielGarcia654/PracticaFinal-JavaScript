@@ -1,27 +1,30 @@
 # PracticaFinal-JavaScript
 
-## 🌟 Pokédex Dinámica
+## 🌟 Pokédex - Descripción
 
-Este proyecto es una Pokédex simple y moderna creada con HTML, CSS y JavaScript Vanilla. Utiliza la [PokéAPI](https://pokeapi.co/) para cargar dinámicamente datos de Pokémones, permitiendo al usuario seleccionar cuántos Pokémones desea visualizar en la lista.
+El proyecto Pokédex Dinámica es una aplicación web simple cuyo objetivo es mostrar una lista de Pokémones de manera interactiva y visualmente atractiva, imitando el estilo de las primeras generaciones del videojuego. Utiliza tecnologías estándar de desarrollo web (HTML, CSS, JavaScript) y se conecta a la PokéAPI para obtener los datos necesarios (nombre, ID, imagen y tipos). La característica principal es que el usuario puede personalizar la cantidad de Pokémones a cargar (desde el ID 1 hasta el ID 1025).
 
-### 🖼️ Características
+### 🖼️ Estrategia de Solución
 
-* **Carga Dinámica:** Obtiene datos (nombre, ID, imagen y tipos) de la PokéAPI.
-* **Diseño Responsivo:** Tarjetas flexibles que se adaptan al tamaño de la pantalla.
-* **Selección Personalizada:** Permite al usuario elegir la cantidad de Pokémones a mostrar (hasta 1025).
-* **Estilo Retro:** Uso de la fuente 'Press Start 2P' para el título, dándole un toque clásico de videojuego.
-* **Tipos con Colores:** Cada tipo de Pokémon tiene su propio color distintivo (Grass, Fire, Water, Fairy, etc.).
-* **Soporte Doble Tipo:** Muestra correctamente las etiquetas para Pokémones que tienen dos tipos.
+* **1. Carga Dinámica y Manejo de la API (Rendimiento):**
+    * **Problema:** Obtener todos los registros individuales de la PokéAPI de manera eficiente sin que la aplicación se congele (mucho).
+    * **Solución:** Se implementó un *pattern* de Promesas. Se genera un arreglo de Promesas (`promises`) dentro de un bucle `for` para lanzar todas las peticiones `fetch()` simultáneamente. La función `await Promise.all(promises)` se utiliza para esperar de forma asíncrona a que todos los datos regresen, garantizando la velocidad y el orden correcto de los Pokémones por ID.
 
-### 🚀 Tecnologías Utilizadas
+* **2. Control de Cantidad Personalizada:**
+    * **Problema:** Permitir al usuario definir la longitud de la lista de Pokémones.
+    * **Solución:** Se utilizó un campo `<input type="number">` y un botón de "Cargar". Un *Event Listener* en el botón captura el valor ingresado y llama a la función principal `fetchPokemon(limite)` con la cantidad especificada. Se incluyó validación de entrada (`1` a `1025`) para evitar errores en la API.
 
-| Tecnología | Propósito |
-| :--- | :--- |
-| **HTML5** | Estructura básica de la página. |
-| **CSS3** | Estilizado, uso de Flexbox para la alineación y colores de tipos. |
-| **JavaScript (Vanilla)** | Conexión con la API (`fetch`), manipulación del DOM y lógica de la aplicación. |
-| **PokéAPI** | Fuente de datos para todos los Pokémones. |
-| **Google Fonts** | Uso de 'Roboto' y 'Press Start 2P'. |
+* **3. Estilización de Tarjetas y Diseño Responsive:**
+    * **Problema:** Alinear elementos y asegurar que la Pokédex se vea bien en cualquier dispositivo.
+    * **Solución:** El contenedor principal (`pokedex-container`) utiliza `display: flex;` con `flex-wrap: wrap;` y `justify-content: center;` para crear una galería de tarjetas que se reordenan automáticamente al cambiar el tamaño de la ventana.
+
+* **4. Soporte para Tipos Múltiples:**
+    * **Problema:** Mostrar correctamente los tipos de Pokémones con doble clasificación (ej., Venasaur: Grass/Poison) sin errores de renderizado.
+    * **Solución:** Dentro de la función `createPokemonCard`, se utiliza el método `map()` de JavaScript sobre el arreglo de tipos (`pokemon.types`). Esto genera dinámicamente una cadena de etiquetas HTML (`<span class="type-badge">`) para **cada tipo individual**, usando `.join('')` para insertarlas en el DOM como un bloque único.
+
+* **5. Estilo Temático y Consistencia:**
+    * **Problema:** Aplicar una estética cohesiva al proyecto.
+    * **Solución:** Se configuró el CSS para utilizar la fuente **'Press Start 2P'** en el título principal y se definieron clases específicas (ej., `.type-fire`, `.type-fairy`) para asignar colores distintivos a los *badges* de tipo, mejorando la experiencia visual del usuario.
 
 ### ⚙️ Cómo Usar (Instrucciones de Instalación)
 
@@ -56,4 +59,4 @@ Hecho por **Gerardo Daniel García Cerda**
 Para el programa de becarios **DGTIC Ingeniería de Software 2026-1**
 
 * **Datos:** [PokéAPI](https://pokeapi.co/)
-* **Iconografía:** Pokeball SVG de Wikimedia Commons.
+* **Iconografía:** [Pokeball SVG](https://es.wikipedia.org/wiki/Archivo:Pok%C3%A9_Ball_icon.svg) de Wikimedia Commons.
