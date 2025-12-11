@@ -234,3 +234,18 @@ footer p {
     background-color: #a8a878;
     color: #FDFDFD;
 }
+
+.type-fairy {
+    background-color: #ee99ac;
+    color: #FDFDFD;
+}
+
+.type-steel {
+    background-color: #4CD0A4;
+    color: #FDFDFD;
+}
+
+.type-dark {
+    background-color: #341B3F;
+    color: #FDFDFD;
+}
