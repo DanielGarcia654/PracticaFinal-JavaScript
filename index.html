@@ -1,18 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Document</h1>
-    <script src="index.js"></script>
-    <div>
-        <p>Parrafo</p>
-    </div>
+    <header class="main-header">
+        <h1>🌟 Pokemones</h1>
+    </header>
+
+    <main class="pokedex-container">
+        <div class="pokemon-card">
+            <div class="pokemon-image-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                    alt="Bulbasaur">
+            </div>
+            <div class="pokemon-info">
+                <span class="pokemon-id">#1</span>
+                <h2 class="pokemon-name">Bulbasaur</h2>
+                <div class="pokemon-types">
+                    <span class="type-badge type-grass">Tipo(s): GRASS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pokemon-card">
+            <div class="pokemon-image-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" alt="Ivysaur">
+            </div>
+            <div class="pokemon-info">
+                <span class="pokemon-id">#2</span>
+                <h2 class="pokemon-name">Ivysaur</h2>
+                <div class="pokemon-types">
+                    <span class="type-badge type-grass">Tipo(s): GRASS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pokemon-card">
+            <div class="pokemon-image-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+                    alt="Venusaur">
+            </div>
+            <div class="pokemon-info">
+                <span class="pokemon-id">#3</span>
+                <h2 class="pokemon-name">Venusaur</h2>
+                <div class="pokemon-types">
+                    <span class="type-badge type-grass">Tipo(s): GRASS</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pokemon-card">
+            <div class="pokemon-image-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+                    alt="Charmander">
+            </div>
+            <div class="pokemon-info">
+                <span class="pokemon-id">#4</span>
+                <h2 class="pokemon-name">Charmander</h2>
+                <div class="pokemon-types">
+                    <span class="type-badge type-fire">Tipo(s): FIRE</span>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>
